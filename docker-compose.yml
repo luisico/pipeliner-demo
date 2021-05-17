@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: ${CI_REGISTRY_IMAGE:-gitlab.example.com/my-project/pipeliner-demo}:${APP_VERSION:-latest}
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./html:/usr/share/nginx/html
+    ports:
+      - "8001:80"

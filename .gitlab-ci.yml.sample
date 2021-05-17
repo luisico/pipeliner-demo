@@ -1,0 +1,15 @@
+---
+# Project uses [Pipeliner](https://github.com/luisico/pipeliner) to deploy to a swarm cluster.
+
+include:
+  project: cce/pipeliner
+  ref: 1.0.0
+  file:
+    - /main.yml
+    - /pipelines/release-from-trunk.yml
+
+# Pipeliner variables:
+variables:
+  # NOTE: substitute INITIALS with your 2-3 lowercase character initials!!!
+  APP_NAME: INITIALS-pipeliner
+  APP_DOMAIN: example.com

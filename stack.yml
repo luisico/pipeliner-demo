@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  web:
+    image: ${CI_REGISTRY_IMAGE:-gitlab.example.com/my-project/pipeliner-demo}:${APP_VERSION:?err}
+    environment:
+      NODE_ENV: ${APP_ENV:-production}
+      TZ: America/New_York
+    deploy:
+      labels:
+        traefik.port: 80
+        traefik.frontend.entryPoints: https
+        traefik.frontend.rule: Host:${STACK_NAME:-pipeliner-demo}.${STACK_DOMAIN:-example.com}
+      mode: replicated
+      replicas: 1
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

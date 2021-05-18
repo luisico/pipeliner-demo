@@ -1,0 +1,22 @@
+---
+# Add job to stop production deployment of demo apps
+
+.deploy_production:
+  extends: .deploy
+  variables:
+    APP_ENV: production
+    STACK_NAME: $APP_NAME
+    STACK_DOMAIN: $APP_DOMAIN
+  environment:
+    name: production
+    url: https://$APP_NAME.$APP_DOMAIN
+    auto_stop_in: 3 days
+    on_stop: Stop Production
+
+.stop_production:
+  extends: .stop_deploy
+  variables:
+    APP_ENV: production
+    STACK_NAME: $APP_NAME
+  environment:
+    name: production

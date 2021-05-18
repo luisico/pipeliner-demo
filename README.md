@@ -26,6 +26,12 @@ After pushing to your GitLab instance, you should see your pipeline running. Fee
 
 When creating your pipeline, you can use GitLab's Pipeline Editor in `CI/CD | Editor` to visualize pipeline stages and jobs, as well as immediate validation.
 
+## Pipeliner overrides
+
+Note this demo overrides production jobs to provide a way to stop the production deployment. While this is not needed in real-world application, this is needed here to avoid accumulating demo "production" deployment and allow demo users to stop the environment on demand. Note that any deployment from this demo will auto-stop in 3 days to further prevent accumulation of containers in the swarm clusters.
+
+This customization can be found in `.pipeliner-overrides`.
+
 ## Author Information
 
 Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):

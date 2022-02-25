@@ -19,10 +19,9 @@ Second, you need to setup a CICD variables and runners:
    - Configure your CICD variables for deployment to the swarm cluster.
    - Activate specialized CICD runners for your pipeline's build stage.
 
-Finally, read [Pipeliner's documenation](https://github.com/luisico/pipeliner) to familiarize yourself with the pipelines offered (`release-on-trunk` and `release-on-stage`), as well as stages, jobs, variables, and how to customize them. Now you can add a pipeline to this project by renaming `.gitlab-ci.yml.sample` to `.gitlab-ci.yml`. Note to personalize the `APP_NAME` with your `INITIALS` to avoid conflicting URLs among demo users. Replace `example.com` through out the code with your own repository and image URLs.
+Finally, read [Pipeliner's documenation](https://github.com/luisico/pipeliner) to familiarize yourself with the pipelines offered (`release-from-trunk`, `release-from-tag` and `continuous-release`), as well as environments, jobs, variables, and how to customize them. Now you can add a pipeline to this project by renaming `.gitlab-ci.yml.sample` to `.gitlab-ci.yml`, and customizing it. Note to personalize the `APP_NAME` with your `INITIALS` to avoid conflicting URLs among demo users. Replace `example.com` through out the code with your own repository and image URLs.
 
-
-After pushing to your GitLab instance, you should see your pipeline running. Feel free to customize your pipelines and see the results. Remember that different jobs run depending on the pipeline and how the code was pushed, for example: is it a branch? which branch? a tag? is a merge request open? ...). Deployments are pushed to live staging environments only when a merge request is open, and to production only on pushes to the default branch (`master` in this case) or a tag, when using `release-on-trunk` and `release-on-stage`, respectively.
+After pushing to your GitLab instance, you should see your pipeline running. Feel free to customize your pipelines and see the results. Remember that different jobs run depending on the pipeline and how the code was pushed, for example: is it a branch? which branch? a tag? is a merge request open? ...). Deployments are pushed to live staging environments only when a merge request is open, and to production only on pushes to the default branch (`master` in this case) or a tag, when using `release-from-trunk` and `release-from-tag`, respectively.
 
 When creating your pipeline, you can use GitLab's Pipeline Editor in `CI/CD | Editor` to visualize pipeline stages and jobs, as well as immediate validation.
 

@@ -10,7 +10,7 @@ services:
       labels:
         traefik.port: 80
         traefik.frontend.entryPoints: https
-        traefik.frontend.rule: Host:${STACK_NAME:-pipeliner-demo}.${STACK_DOMAIN:-example.com}
+        traefik.frontend.rule: Host:${APP_HOST:-pipeliner-demo.example.com}
       mode: replicated
       replicas: 1
     networks:
